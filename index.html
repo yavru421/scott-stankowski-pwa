@@ -1,76 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scott Stankowski - Realtor PWA</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="manifest" href="../public/manifest.json">
-    <script defer src="main.js"></script>
-</head>
-<body>
-    <header>
-        <h1>Scott Stankowski</h1>
-        <p>Your Trusted Realtor at EXIT Realty CW</p>
-    </header>
-    
-    <main>
-        <!-- Profile Picture -->
-        <img src="assets/scott-stankowski.jpg" alt="Scott Stankowski" class="profile-pic">
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scott Stankowski - Realtor PWA</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="manifest" href="public/manifest.json">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script defer src="src/main.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Scott Stankowski</h1>
+            <p>Your Trusted Realtor at EXIT Realty CW</p>
+        </header>
         
-        <!-- Introduction and Install Button -->
-        <section id="introduction">
-            <p>Welcome to my real estate app! Explore my listings, get in touch, and discover your new home with personalized service.</p>
-            <button id="installButton" style="display: none;">Install App</button>
-        </section>
-        
-        <!-- Listings Section with Embedded 3D Tours -->
-        <section id="listings">
-            <h2>Featured 3D Tours</h2>
-            <p>Explore some of my featured property listings in 3D below:</p>
+        <main>
+            <!-- Profile Picture -->
+            <img src="assets/scott-stankowski.jpg" alt="Scott Stankowski" class="profile-pic">
             
-            <!-- Embed Matterport 3D Tours -->
-            <div class="tour-container">
-                <iframe width="853" height="480" src="https://my.matterport.com/show/?m=fjWfvWrTM5T" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
-            </div>
+            <!-- Introduction and Install Button -->
+            <section id="introduction">
+                <p>Welcome to my real estate app! Explore my listings, get in touch, and discover your new home with personalized service.</p>
+                <button id="installButton" style="display: none;">Install App</button>
+            </section>
+            
+            <!-- Listings Section with Embedded 3D Tours -->
+            <section id="listings">
+                <h2>Featured 3D Tours</h2>
+                <p>Explore some of my featured property listings in 3D below:</p>
+                
+                <!-- Embed Matterport 3D Tours -->
+                <div class="tour-container">
+                    <iframe width="853" height="480" src="https://my.matterport.com/show/?m=fjWfvWrTM5T" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
+                </div>
+                <div class="tour-container">
+                    <iframe width="853" height="480" src="https://my.matterport.com/show/?m=KbSM4oRdT3Z" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
+                </div>
+            </section>
+            
+            <!-- Contact Information -->
+            <section id="contact-info">
+                <h2>Contact Scott</h2>
+                <ul>
+                    <li><strong>Realtor License #:</strong> 93838-94</li>
+                    <li><strong>Mobile:</strong> <a href="tel:+17153212825">+1 (715) 321-2825</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:scott@exitcw.com">scott@exitcw.com</a></li>
+                    <li><strong>Office:</strong> EXIT REALTY CW</li>
+                    <li><strong>Office Address:</strong> 2006 County Rd HH, Plover, WI, 54467</li>
+                </ul>
 
-            <div class="tour-container">
-                <iframe width="853" height="480" src="https://my.matterport.com/show/?m=KbSM4oRdT3Z" frameborder="0" allowfullscreen allow="xr-spatial-tracking"></iframe>
-            </div>
-        </section>
+                <h3>24/7 Mobile Property Search</h3>
+                <p>Text <strong>Stan</strong> to 85377</p>
+
+                <h3>My Mobile Business Card™</h3>
+                <p>Text <strong>cwscoach</strong> to 85377</p>
+
+                <p><em>* Std. msg and data rates may apply</em></p>
+
+                <h3>Connect with Me on Social Media</h3>
+                <p>Stay updated with my latest listings and news!</p>
+
+                <h3>Download EXIT Realty Connect App</h3>
+                <p><a href="#">Download App</a></p>
+
+                <h3>Interested in Joining EXIT Realty?</h3>
+                <p><a href="#">Click to Learn More</a></p>
+            </section>
+        </main>
         
-        <!-- Contact Information -->
-        <section id="contact-info">
-            <h2>Contact Scott</h2>
-            <ul>
-                <li><strong>Realtor License #:</strong> 93838-94</li>
-                <li><strong>Mobile:</strong> <a href="tel:+17153212825">+1 (715) 321-2825</a></li>
-                <li><strong>Email:</strong> <a href="mailto:scott@exitcw.com">scott@exitcw.com</a></li>
-                <li><strong>Office:</strong> EXIT REALTY CW</li>
-                <li><strong>Office Address:</strong> 2006 County Rd HH, Plover, WI, 54467</li>
-            </ul>
-
-            <h3>24/7 Mobile Property Search</h3>
-            <p>Text <strong>Stan</strong> to 85377</p>
-
-            <h3>My Mobile Business Card™</h3>
-            <p>Text <strong>cwscoach</strong> to 85377</p>
-
-            <p><em>* Std. msg and data rates may apply</em></p>
-
-            <h3>Connect with Me on Social Media</h3>
-            <p>Stay updated with my latest listings and news!</p>
-
-            <h3>Download EXIT Realty Connect App</h3>
-            <p><a href="#">Download App</a></p>
-
-            <h3>Interested in Joining EXIT Realty?</h3>
-            <p><a href="#">Click to Learn More</a></p>
-        </section>
-    </main>
+        <footer>
+            <p>© 2024 Scott Stankowski. All rights reserved.</p>
+        </footer>
+    </body>
+    </html>
     
-    <footer>
-        <p>© 2024 Scott Stankowski. All rights reserved.</p>
-    </footer>
-</body>
-</html>
