@@ -20,18 +20,6 @@
             background-color: #1e1e1e;
             padding: 20px;
         }
-        .banner-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        .banner-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 20px;
-        }
         .video-container {
             margin: 20px auto;
             max-width: 560px;
@@ -46,9 +34,6 @@
 </head>
 <body>
     <header>
-        <div class="banner-container">
-            <img src="../assets/banner.webp" alt="Stosh HQ Banner" class="banner-image">
-        </div>
         <h1>Stosh HQ</h1>
         <p>The official place to experience Stosh content</p>
     </header>
@@ -65,17 +50,9 @@
             
             <!-- Embed Facebook Video -->
             <div class="video-container">
-                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F561780440248038%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                <iframe src="https://www.facebook.com/plugins/video.php?href=YOUR_FACEBOOK_VIDEO_URL" width="560" height="315" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
-        <!-- Embed Additional Facebook Video -->
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-        </div>
-        <section id="stosh-merch">
-            <h2>Stosh Merch</h2>
-            <p>Get your hands on the latest Stosh merchandise.</p>
-            <a href="https://stoshhq.com/merch" target="_blank" rel="noopener noreferrer">Shop Now</a>
         
         <section id="stosh-branding">
             <h2>Stosh Aesthetic</h2>
