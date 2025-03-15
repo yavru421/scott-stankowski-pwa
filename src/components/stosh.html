@@ -6,7 +6,7 @@
     <title>StoshNews</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#fc4903">
     
     <!-- Banner/Icon Meta Tags -->
     <link rel="icon" href="../assets/banner.png">
@@ -17,122 +17,588 @@
     <meta property="og:description" content="The official place to experience Stosh content">
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-        
-        // Offline tracking for PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('online', function() {
-                // Send any stored analytics data when back online
-                if (window.localStorage.getItem('offlineAnalytics')) {
-                    const events = JSON.parse(window.localStorage.getItem('offlineAnalytics'));
-                    events.forEach(event => gtag('event', event.name, event.params));
-                    window.localStorage.removeItem('offlineAnalytics');
-                }
-            });
-        }
-    </script>
+    // ...existing code...
     
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #f5f5f5;
-            text-align: center;
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --text-primary: #f5f5f5;
+            --accent: #fc4903;
+            --accent-hover: #ff6b2b;
+            --card-bg: #252525;
+            --shadow: 0 4px 8px rgba(0,0,0,0.3);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #1e1e1e;
-            padding: 20px;
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--bg-secondary);
+            padding: 0;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
         .banner-container {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+            position: relative;
             overflow: hidden;
+            height: 200px; /* Fixed height for banner */
+            background-color: #000;
         }
+        
         .banner-image {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.85;
+            transition: transform 0.5s ease;
+        }
+        
+        .banner-container:hover .banner-image {
+            transform: scale(1.02);
+        }
+        
+        .header-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), var(--bg-secondary));
+            margin-top: -60px;
+            padding-top: 30px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(45deg, var(--accent), #ff8a50);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(252, 73, 3, 0.3);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        /* Navigation */
+        nav {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: var(--bg-secondary);
+            transition: var(--transition);
+            border: 1px solid #333;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            margin: 40px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -8px;
+            left: 25%;
+            border-radius: 2px;
+        }
+        
+        /* Video Container */
+        .video-container {
+            margin: 30px auto;
+            max-width: 560px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+            z-index: 2;
+        }
+        
+        .video-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        
+        iframe {
             display: block;
+            width: 100%;
+            border: none;
+            background-color: #000;
+        }
+        
+        /* Stosh Aesthetic Section */
+        #stosh-aesthetic {
+            margin-top: 60px;
+        }
+        
+        .stosh-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stosh-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stosh-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .stosh-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        
+        .stosh-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .stosh-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            transition: transform 0.5s ease;
+        }
+        
+        .stosh-card:hover .stosh-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
+        /* Merch Section */
+        #stosh-merch {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .merch-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(252, 73, 3, 0.4);
+        }
+        
+        .merch-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(252, 73, 3, 0.6);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 30px 20px;
+            margin-top: 60px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
             margin-bottom: 20px;
         }
         
-        svg {
-            width: 100px;
-            height: 100px;
-            fill: #f5f5f5;
-            margin: 10px;
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--text-primary);
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            fill: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-container {
+                height: 150px;
+            }
+            
+            .stosh-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                margin-top: -40px;
+            }
+        }
+        
+        /* Loading Animation */
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-icon {
+            width: 80px;
+            height: 80px;
+            border: 5px solid #333;
+            border-radius: 50%;
+            border-top-color: var(--accent);
+            animation: spin 1s infinite linear;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-icon"></div>
+    </div>
+
     <header>
         <div class="banner-container">
             <img src="../assets/banner.png" alt="StoshNews Banner" class="banner-image">
         </div>
-        <h1>StoshNews</h1>
-        <p>The official place to experience Stosh content</p>
+        <div class="header-content">
+            <h1>StoshNews</h1>
+            <p>The official place to experience Stosh content</p>
+            
+            <nav>
+                <a href="#latest" class="active">Latest</a>
+                <a href="#videos">Videos</a>
+                <a href="#stosh-merch">Merch</a>
+                <a href="#stosh-aesthetic">Aesthetic</a>
+            </nav>
+        </div>
     </header>
     
     <main>
-        <!-- Additional Facebook Post - NOW FIRST -->
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122100470444404410%26set%3Da.122100465728404410&show_text=true&width=500" width="500" height="533" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+        <section id="latest">
+            <h2>Latest from Stosh</h2>
+            <!-- Additional Facebook Post - NOW FIRST -->
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122100470444404410%26set%3Da.122100465728404410&show_text=true&width=500" width="500" height="533" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+            
+            <!-- New Facebook Post -->
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DxZntuPLvBRxqAiNAFBLBazfT5hxX1n1RWbNwoFm9mpNTtfJHTr91zRU4ihAvbb9l%26id%3D61562132317250&show_text=true&width=500" width="500" height="700" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+        </section>
         
         <section id="videos">
             <h2>Stosh Videos</h2>
-            <p>Check out the latest Stosh content.</p>
+            <p>Check out the latest Stosh content, fresh from the source.</p>
             
-            <!-- First Facebook Video 
+            <!-- First Facebook Video (previously YouTube) -->
             <div class="video-container">
                 <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1318313399284753%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
             
-        <!-- Second Facebook Video -->
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1574627393251489%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-        </div>
-        <!-- Third Facebook Video (keeping existing) -->
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-        </div>
-        
-        <!-- New Facebook Post -->
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DxZntuPLvBRxqAiNAFBLBazfT5hxX1n1RWbNwoFm9mpNTtfJHTr91zRU4ihAvbb9l%26id%3D61562132317250&show_text=true&width=500" width="500" height="1100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-
-        <section id="find-stosh"></section>
-            <h2>Where to Find Stosh</h2>
-            <p>Follow Stosh's latest locations and appearances</p>
-            
-            <!-- Example Facebook post embed for Stosh location -->
+            <!-- Second Facebook Video (fixing the malformed div) -->
             <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F516052221160140%2F&show_text=true&width=560&t=0" width="560" height="429" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1574627393251489%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+            </div>
+            
+            <!-- Third Facebook Video (fixing the malformed div) -->
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
         </section>
-        <section id="stosh-branding">
+
+        <section id="stosh-merch">
+            <h2>Stosh Merch</h2>
+            <p>Get your hands on the latest Stosh merchandise. Be the first to represent.</p>
+            <a href="https://stoshhq.com/merch" target="_blank" rel="noopener noreferrer" class="merch-button">Shop Now</a>
+        </section>
+        
+        <section id="stosh-aesthetic">
             <h2>Stosh Aesthetic</h2>
-            <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" stroke="#f5f5f5" stroke-width="5" fill="none" />
-            </svg>
-            <svg viewBox="0 0 100 100">
-                <rect x="20" y="20" width="60" height="60" stroke="#f5f5f5" stroke-width="5" fill="none" />
-            </svg>
+            <p>The visual language that defines the Stosh experience.</p>
+            
+            <div class="stosh-grid">
+                <div class="stosh-card">
+                    <svg class="stosh-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="#fc4903" stroke-width="5" fill="none" />
+                        <circle cx="50" cy="50" r="20" fill="#fc4903" />
+                    </svg>
+                    <h3>Stosh Vision</h3>
+                    <p>Pushing boundaries through creative exploration and authentic storytelling.</p>
+                </div>
+                
+                <div class="stosh-card">
+                    <svg class="stosh-icon" viewBox="0 0 100 100">
+                        <rect x="20" y="20" width="60" height="60" stroke="#fc4903" stroke-width="5" fill="none" />
+                        <rect x="35" y="35" width="30" height="30" fill="#fc4903" />
+                    </svg>
+                    <h3>Stosh Design</h3>
+                    <p>Bold, distinctive elements that capture attention and inspire action.</p>
+                </div>
+                
+                <div class="stosh-card">
+                    <svg class="stosh-icon" viewBox="0 0 100 100">
+                        <polygon points="50,15 85,85 15,85" stroke="#fc4903" stroke-width="5" fill="none" />
+                        <polygon points="50,40 67.5,70 32.5,70" fill="#fc4903" />
+                    </svg>
+                    <h3>Stosh Impact</h3>
+                    <p>Creating moments that resonate and content that matters.</p>
+                </div>
+            </div>
         </section>
     </main>
     
     <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com/stosh" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
+                </svg>
+            </a>
+            <a href="https://instagram.com/stosh" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            <a href="https://twitter.com/stosh" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/>
+                </svg>
+            </a>
+        </div>
         <p>&copy; 2025 StoshNews. All rights preserved in the legend of Stosh.</p>
     </footer>
     
-    <script src="app.js"></script>
+    <script>
+        // Loading animation
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulate loading time
+            setTimeout(() => {
+                document.querySelector('.loader').classList.add('hidden');
+            }, 1000);
+            
+            // Add animation delay to sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            // Interactive cards
+            const cards = document.querySelectorAll('.stosh-card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Generate a random color in the orange family
+                    const hue = 20 + Math.random() * 30; // Range around orange
+                    const randomColor = `hsl(${hue}, 95%, 55%)`;
+                    
+                    const svg = card.querySelector('svg');
+                    const shapes = svg.querySelectorAll('circle, rect, polygon');
+                    
+                    shapes.forEach(shape => {
+                        if (shape.getAttribute('fill') !== 'none') {
+                            shape.setAttribute('fill', randomColor);
+                        }
+                        if (shape.getAttribute('stroke') !== 'none' && shape.getAttribute('stroke')) {
+                            shape.setAttribute('stroke', randomColor);
+                        }
+                    });
+                    
+                    // Add ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.width = '10px';
+                    ripple.style.height = '10px';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.backgroundColor = randomColor;
+                    ripple.style.opacity = '0.6';
+                    ripple.style.top = '50%';
+                    ripple.style.left = '50%';
+                    ripple.style.transform = 'translate(-50%, -50%)';
+                    ripple.style.transition = 'all 0.8s ease-out';
+                    
+                    card.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.style.width = '300px';
+                        ripple.style.height = '300px';
+                        ripple.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        card.removeChild(ripple);
+                    }, 800);
+                });
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active state
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Smooth scroll
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Lazy load iframes
+            const iframes = document.querySelectorAll('iframe');
+            const lazyLoadIframes = () => {
+                iframes.forEach(iframe => {
+                    const rect = iframe.getBoundingClientRect();
+                    const isVisible = (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                    
+                    if (isVisible && iframe.dataset.src) {
+                        iframe.src = iframe.dataset.src;
+                        iframe.dataset.src = '';
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', lazyLoadIframes);
+            lazyLoadIframes();
+        });
+        
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
