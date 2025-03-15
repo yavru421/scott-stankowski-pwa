@@ -62,10 +62,7 @@
             display: block;
             margin-bottom: 20px;
         }
-        .video-container {
-            margin: 20px auto;
-            max-width: 560px;
-        }
+        
         svg {
             width: 100px;
             height: 100px;
@@ -77,7 +74,7 @@
 <body>
     <header>
         <div class="banner-container">
-            <img src="../assets/banner.webp" alt="StoshNews Banner" class="banner-image">
+            <img src="../assets/banner.png" alt="StoshNews Banner" class="banner-image">
         </div>
         <h1>StoshNews</h1>
         <p>The official place to experience Stosh content</p>
@@ -99,12 +96,12 @@
             </div>
             
             <!-- Second Facebook Video -->
-            <div class="video-container"></div>
+            <div class="video-container">
                 <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1574627393251489%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
         </section>
         <!-- Third Facebook Video (keeping existing) -->
-        <div class="video-container"></div>
+        <div class="video-container">
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
         </div>
         
@@ -113,11 +110,15 @@
             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DxZntuPLvBRxqAiNAFBLBazfT5hxX1n1RWbNwoFm9mpNTtfJHTr91zRU4ihAvbb9l%26id%3D61562132317250&show_text=true&width=500" width="500" height="1100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
 
-        <section id="stosh-merch">
-            <h2>Stosh Merch</h2>
-            <p>Get your hands on the latest Stosh merchandise.</p>
-            <a href="https://stoshhq.com/merch" target="_blank" rel="noopener noreferrer">Shop Now</a>
-        
+        <section id="find-stosh"></section>
+            <h2>Where to Find Stosh</h2>
+            <p>Follow Stosh's latest locations and appearances</p>
+            
+            <!-- Example Facebook post embed for Stosh location -->
+            <div class="video-container">
+            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F516052221160140%2F&show_text=true&width=560&t=0" width="560" height="429" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+            </div>
+        </section>
         <section id="stosh-branding">
             <h2>Stosh Aesthetic</h2>
             <svg viewBox="0 0 100 100">
