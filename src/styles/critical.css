@@ -1,0 +1,52 @@
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #f5f5f5;
+    --accent: #fc4903;
+    --accent-hover: #ff6b2b;
+    --card-bg: #252525;
+    --shadow: 0 4px 8px rgba(0,0,0,0.3);
+    --transition: all 0.3s ease;
+}
+
+/* Optimized Base Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-x: hidden;
+}
+
+.content-text {
+    max-width: 65ch;
+    margin: 0 auto;
+}
+
+/* Optimized Navigation */
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .main-nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Rest of your existing styles... */
