@@ -328,6 +328,14 @@
             .header-content {
                 margin-top: -40px;
             }
+            
+            .video-carousel-container {
+                max-width: 90%;
+            }
+            
+            .thumbnail-container {
+                width: 140px;
+            }
         }
         
         /* Loading Animation */
@@ -505,7 +513,53 @@
             fill: currentColor;
         }
         
+        /* Hide thumbnails with no video */
+        .thumbnail-container[data-video=""] {
+            display: none;
+        }
+        
+        /* Alternatively, if you want to show them as "coming soon" instead of hiding them completely,
+           uncomment this and comment out the above rule */
+        /*
+        .thumbnail-container[data-video=""] {
+            opacity: 0.6;
+            cursor: default;
+        }
+        
+        .thumbnail-container[data-video=""]::before {
+            content: 'Coming Soon';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            font-weight: bold;
+            z-index: 1;
+        }
+        */
+        
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-container {
+                height: 150px;
+            }
+            
+            .stosh-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                margin-top: -40px;
+            }
+            
             .video-carousel-container {
                 max-width: 90%;
             }
@@ -530,8 +584,8 @@
             <h1>StoshNews</h1>
             <p>The official place to experience Stosh content</p>
             
-            <nav>
-                <a href="#latest" class="active">Latest</a>
+            <nav aria-label="Main navigation">
+                <a href="#latest" class="active" aria-current="page">Latest</a>
                 <a href="#videos">Videos</a>
                 <a href="#stosh-merch">Merch</a>
                 <a href="#stosh-aesthetic">Aesthetic</a>
@@ -582,15 +636,7 @@
                         <img src="https://via.placeholder.com/320x180/333/fff?text=Video+3" alt="Video 3" class="video-thumbnail">
                         <div class="video-title">Fishing the BWCA</div>
                     </div>
-                    <!-- You can add more thumbnails for future videos -->
-                    <div class="thumbnail-container" data-video="">
-                        <img src="https://via.placeholder.com/320x180/333/fff?text=Coming+Soon" alt="Coming Soon" class="video-thumbnail">
-                        <div class="video-title">Coming Soon</div>
-                    </div>
-                    <div class="thumbnail-container" data-video="">
-                        <img src="https://via.placeholder.com/320x180/333/fff?text=Coming+Soon" alt="Coming Soon" class="video-thumbnail">
-                        <div class="video-title">Coming Soon</div>
-                    </div>
+                    <!-- These will now be hidden by default -->
                 </div>
                 
                 <div class="carousel-controls">
@@ -782,34 +828,35 @@
             
             // Function to switch active video
             const activateVideo = (videoId) => {
+                // Only proceed if videoId is valid
+                if (!videoId) return;
+                
                 // Hide all videos
                 videos.forEach(video => {
                     video.classList.remove('active');
                 });
                 
                 // Show selected video
-                if (videoId) {
-                    const selectedVideo = document.getElementById(videoId);
-                    if (selectedVideo) {
-                        selectedVideo.classList.add('active');
-                    }
+                const selectedVideo = document.getElementById(videoId);
+                if (selectedVideo) {
+                    selectedVideo.classList.add('active');
+                    
+                    // Update active thumbnail
+                    thumbnails.forEach(thumb => {
+                        if (thumb.dataset.video === videoId) {
+                            thumb.classList.add('active');
+                        } else {
+                            thumb.classList.remove('active');
+                        }
+                    });
                 }
-                
-                // Update active thumbnail
-                thumbnails.forEach(thumb => {
-                    if (thumb.dataset.video === videoId) {
-                        thumb.classList.add('active');
-                    } else {
-                        thumb.classList.remove('active');
-                    }
-                });
             };
             
             // Add click event to thumbnails
             thumbnails.forEach(thumbnail => {
                 thumbnail.addEventListener('click', () => {
                     const videoId = thumbnail.dataset.video;
-                    if (videoId) {
+                    if (videoId) {  // Only activate if videoId exists
                         activateVideo(videoId);
                         
                         // Scroll thumbnail into view
@@ -823,19 +870,21 @@
             });
             
             // Carousel navigation buttons
-            prevBtn.addEventListener('click', () => {
-                carousel.scrollBy({
-                    left: -200,
-                    behavior: 'smooth'
+            if (prevBtn && nextBtn && carousel) {
+                prevBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: -200,
+                        behavior: 'smooth'
+                    });
                 });
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                carousel.scrollBy({
-                    left: 200,
-                    behavior: 'smooth'
+                
+                nextBtn.addEventListener('click', () => {
+                    carousel.scrollBy({
+                        left: 200,
+                        behavior: 'smooth'
+                    });
                 });
-            });
+            }
         });
         
         // Service Worker Registration
