@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stosh HQ</title>
+    <title>StoshNews</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
+    
+    <!-- Banner/Icon Meta Tags -->
+    <link rel="icon" href="../assets/banner.png">
+    <link rel="apple-touch-icon" href="../assets/banner.png">
+    <meta name="apple-mobile-web-app-title" content="StoshNews">
+    <meta property="og:image" content="../assets/banner.png">
+    <meta property="og:title" content="StoshNews">
+    <meta property="og:description" content="The official place to experience Stosh content">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+        
+        // Offline tracking for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('online', function() {
+                // Send any stored analytics data when back online
+                if (window.localStorage.getItem('offlineAnalytics')) {
+                    const events = JSON.parse(window.localStorage.getItem('offlineAnalytics'));
+                    events.forEach(event => gtag('event', event.name, event.params));
+                    window.localStorage.removeItem('offlineAnalytics');
+                }
+            });
+        }
+    </script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,31 +77,42 @@
 <body>
     <header>
         <div class="banner-container">
-            <img src="../assets/banner.webp" alt="Stosh HQ Banner" class="banner-image">
+            <img src="../assets/banner.webp" alt="StoshNews Banner" class="banner-image">
         </div>
-        <h1>Stosh HQ</h1>
+        <h1>StoshNews</h1>
         <p>The official place to experience Stosh content</p>
     </header>
     
     <main>
+        <!-- Additional Facebook Post - NOW FIRST -->
+        <div class="video-container">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122100470444404410%26set%3Da.122100465728404410&show_text=true&width=500" width="500" height="533" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+        
         <section id="videos">
             <h2>Stosh Videos</h2>
             <p>Check out the latest Stosh content.</p>
             
-            <!-- Embed YouTube Video -->
+            <!-- First Facebook Video (previously YouTube) -->
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1318313399284753%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
             
-            <!-- Embed Facebook Video -->
-            <div class="video-container">
-                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F561780440248038%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+            <!-- Second Facebook Video -->
+            <div class="video-container"></div>
+                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1574627393251489%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
             </div>
         </section>
-        <!-- Embed Additional Facebook Video -->
-        <div class="video-container">
+        <!-- Third Facebook Video (keeping existing) -->
+        <div class="video-container"></div>
             <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
         </div>
+        
+        <!-- New Facebook Post -->
+        <div class="video-container">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0DxZntuPLvBRxqAiNAFBLBazfT5hxX1n1RWbNwoFm9mpNTtfJHTr91zRU4ihAvbb9l%26id%3D61562132317250&show_text=true&width=500" width="500" height="1100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+
         <section id="stosh-merch">
             <h2>Stosh Merch</h2>
             <p>Get your hands on the latest Stosh merchandise.</p>
@@ -89,7 +130,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2025 Stosh HQ. All rights preserved in the legend of Stosh.</p>
+        <p>&copy; 2025 StoshNews. All rights preserved in the legend of Stosh.</p>
     </footer>
     
     <script src="app.js"></script>
