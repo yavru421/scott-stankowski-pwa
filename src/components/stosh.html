@@ -1,327 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StoshNews</title>
-    
-    <!-- Critical Asset Preloading -->
-    <link rel="preload" href="../styles/critical.css" as="style">
-    <link rel="preload" href="../assets/banner.webp" as="image">
-    
-    <!-- Existing meta tags -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#fc4903">
-    
-    <!-- Banner/Icon Meta Tags -->
-    <link rel="icon" href="../assets/banner.png">
-    <link rel="apple-touch-icon" href="../assets/banner.png">
-    <meta name="apple-mobile-web-app-title" content="StoshNews">
-    <meta property="og:image" content="../assets/banner.png">
-    <meta property="og:title" content="StoshNews">
-    <meta property="og:description" content="The official place to experience Stosh content">
+
+    <!-- Essential Meta Tags -->
+    <meta name="theme-color" content="#fc4903" />
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="icon" href="../assets/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="../assets/icon-192x192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="StoshNews" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/critical.css" />
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="../assets/icon-192x192.png" as="image" />
     
     <!-- Google Analytics -->
-    // ...existing code...
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#2f3e46">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="apple-touch-icon" href="../assets/icon-192x192.png">
-    
-    <style>
-        /* Move styles to critical.css */
-    </style>
-</head>
-<body>
-    <!-- Loading Animation -->
-    <div class="loader">
-        <div class="loader-icon"></div>
-    </div>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  </head>
+  <body>
     <header>
-        <div class="banner-container">
-            <img src="../assets/banner.png" alt="StoshNews Banner" class="banner-image">
-        </div>
-        <div class="header-content">
-            <h1>StoshNews</h1>
-            <p>The official place to experience Stosh content</p>
-            
-            <nav aria-label="Main navigation">
-                <a href="#videos" class="active" aria-current="page">Videos</a>
-                <a href="#social">Follow</a>
-            </nav>
-        </div>
+      <div class="banner-container">
+        <img
+          src="../assets/icon-192x192.png"
+          alt="StoshNews"
+          width="192"
+          height="192"
+          class="banner-image"
+        />
+      </div>
+      <div class="header-content">
+        <h1>StoshNews</h1>
+        <nav>
+          <a href="#videos">Videos</a>
+          <a href="#social">Follow</a>
+        </nav>
+      </div>
     </header>
-    
+
     <main>
-        <!-- PWA Install Button -->
-        <button id="install-button" style="display: none" class="install-button">
-            Install StoshNews App
-        </button>
+      <!-- Install Button -->
+      <button id="install-button" class="install-button" style="display: none">
+        Install App
+      </button>
 
-        <!-- Videos Section -->
-        <section id="videos">
-            <h2>Stosh Videos</h2>
-            <p>Check out the latest Stosh content, fresh from the source.</p>
-            
-            <div class="video-carousel-container">
-                <div class="video-player">
-                    <!-- First Facebook Video -->
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1318313399284753%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" class="active" id="video-1"></iframe>
-                    
-                    <!-- Second Facebook Video -->
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1574627393251489%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" id="video-2"></iframe>
-                    
-                    <!-- Third Facebook Video -->
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" id="video-3"></iframe>
-                    
-                    <!-- Fourth Facebook Video -->
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F947112336947655%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" id="video-4"></iframe>
-                </div>
-                
-                <div class="video-carousel">
-                    <div class="thumbnail-container active" data-video="video-1">
-                        <img src="https://via.placeholder.com/320x180/333/fff?text=Video+1" alt="Video 1" class="video-thumbnail">
-                        <div class="video-title">Buck Down In Kansas</div>
-                    </div>
-                    <div class="thumbnail-container" data-video="video-2">
-                        <img src="https://via.placeholder.com/320x180/333/fff?text=Video+2" alt="Video 2" class="video-thumbnail">
-                        <div class="video-title">Wisconsin Whitetail</div>
-                    </div>
-                    <div class="thumbnail-container" data-video="video-3">
-                        <img src="https://via.placeholder.com/320x180/333/fff?text=Video+3" alt="Video 3" class="video-thumbnail">
-                        <div class="video-title">Fishing the BWCA</div>
-                    </div>
-                    <!-- Fourth Video Thumbnail -->
-                    <div class="thumbnail-container" data-video="video-4">
-                        <img src="https://via.placeholder.com/320x180/333/fff?text=Video+4" alt="Video 4" class="video-thumbnail">
-                        <div class="video-title">Wisconsin Hunt</div>
-                    </div>
-                </div>
-                
-                <div class="carousel-controls">
-                    <button class="carousel-btn prev-btn">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                        </svg>
-                    </button>
-                    <button class="carousel-btn next-btn">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </section>
+      <!-- Latest Post Section -->
+      <section id="latest">
+        <h2>Latest from Stosh</h2>
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122100470444404410%26set%3Da.122100465728404410&show_text=true&width=500" 
+            width="500" 
+            height="533" 
+            style="border:none;overflow:hidden" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+      </section>
 
-        <section id="latest">
-            <h2>Latest from Stosh</h2>
-            <div class="video-container">
-                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1786895972136185%2F&show_text=true&width=560&t=0" width="560" height="429" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-            </div>
-        </section>
+      <!-- Videos Section -->
+      <section id="videos">
+        <h2>Stosh Videos</h2>
+        <p>Check out the latest Stosh content, fresh from the source.</p>
+        
+        <!-- Video 1 -->
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1318313399284753%2F&show_text=false&width=267&t=0" 
+            width="267" 
+            height="476" 
+            style="border:none;overflow:hidden" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1574627393251489%2F&show_text=false&width=560&t=0" 
+            width="560" 
+            height="314" 
+            style="border:none;overflow:hidden" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+        
+        <!-- Video 3 -->
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" 
+            width="560" 
+            height="314" 
+            style="border:none;overflow:hidden" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+        
+        <!-- Video 4 (New video) -->
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1786895972136185%2F&show_text=false&width=560&t=0" 
+            width="560" 
+            height="314" 
+            style="border:none;overflow:hidden" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+      </section>
 
-        <!-- Social Media Section -->
-        <section id="social" class="social-section">
-            <h2>Follow Stosh</h2>
-            <div class="social-icons">
-                <a href="https://facebook.com/stosh" target="_blank" rel="noopener noreferrer">
-                    <svg class="social-icon" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
-                    </svg>
-                </a>
-                <a href="https://instagram.com/stosh" target="_blank" rel="noopener noreferrer">
-                    <svg class="social-icon" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="https://twitter.com/stosh" target="_blank" rel="noopener noreferrer">
-                    <svg class="social-icon" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/>
-                    </svg>
-                </a>
-            </div>
-        </section>
+      <!-- Social Section -->
+      <section id="social">
+        <h2>Follow Stosh</h2>
+        <div class="social-links">
+          <a
+            href="https://www.facebook.com/61562132317250"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+          >
+            Facebook
+          </a>
+          <a
+            href="https://instagram.com/stosh"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://twitter.com/stosh"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+          >
+            Twitter
+          </a>
+        </div>
+      </section>
     </main>
     
     <footer>
-        <p>&copy; 2025 StoshNews. All rights preserved in the legend of Stosh.</p>
+      <p>&copy; 2025 StoshNews. All rights preserved in the legend of Stosh.</p>
     </footer>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Cache DOM elements
-            const loader = document.querySelector('.loader');
-            const sections = document.querySelectorAll('section');
-            const cards = document.querySelectorAll('.stosh-card');
-            const navLinks = document.querySelectorAll('nav a');
-            const thumbnails = document.querySelectorAll('.thumbnail-container');
-            const videos = document.querySelectorAll('.video-player iframe');
-            const carousel = document.querySelector('.video-carousel');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            
-            // 2. Optimize Loading Animation
-            setTimeout(() => {
-                loader.classList.add('hidden');
-            }, 1000);
-            
-            // 3. Add animation delay to sections
-            sections.forEach((section, index) => {
-                section.style.animationDelay = `${index * 0.2}s`;
-            });
-            
-            // 4. Interactive cards
-            cards.forEach(card => {
-                card.addEventListener('click', () => {
-                    const hue = 20 + Math.random() * 30;
-                    const randomColor = `hsl(${hue}, 95%, 55%)`;
-                    
-                    const svg = card.querySelector('svg');
-                    const shapes = svg.querySelectorAll('circle, rect, polygon');
-                    
-                    shapes.forEach(shape => {
-                        if (shape.getAttribute('fill') !== 'none') {
-                            shape.setAttribute('fill', randomColor);
-                        }
-                        if (shape.getAttribute('stroke') !== 'none' && shape.getAttribute('stroke')) {
-                            shape.setAttribute('stroke', randomColor);
-                        }
-                    });
-                    
-                    // Add ripple effect
-                    const ripple = document.createElement('div');
-                    ripple.className = 'ripple'; // Use CSS class for styling
-                    ripple.style.backgroundColor = randomColor;
-                    
-                    card.appendChild(ripple);
-                    
-                    // Animate ripple
-                    setTimeout(() => {
-                        ripple.classList.add('animate');
-                    }, 10);
-                    
-                    // Remove ripple after animation
-                    ripple.addEventListener('transitionend', () => {
-                        ripple.remove();
-                    });
-                });
-            });
-            
-            // 5. Smooth scrolling for navigation
-            navLinks.forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Update active state
-                    navLinks.forEach(a => a.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // 6. Lazy load iframes
-            const lazyLoadIframes = () => {
-                iframes.forEach(iframe => {
-                    if (iframe.src) return; // Skip already loaded iframes
-                    
-                    const rect = iframe.getBoundingClientRect();
-                    const isVisible = (
-                        rect.top >= 0 &&
-                        rect.left >= 0 &&
-                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                    );
-                    
-                    if (isVisible) {
-                        iframe.src = iframe.dataset.src;
-                        iframe.onload = () => {
-                            iframe.removeAttribute('data-src'); // Prevent duplicate loading
-                        };
-                    }
-                });
-            };
-            
-            // 7. Throttled scroll event listener
-            let throttleTimeout;
-            const throttledLazyLoad = () => {
-                if (!throttleTimeout) {
-                    throttleTimeout = setTimeout(() => {
-                        lazyLoadIframes();
-                        throttleTimeout = null;
-                    }, 200); // Adjust delay as needed
-                }
-            };
-            
-            window.addEventListener('scroll', throttledLazyLoad);
-            lazyLoadIframes(); // Initial check
-            
-            // 8. Video Carousel Functionality
-            const activateVideo = (videoId) => {
-                if (!videoId) return;
-                
-                videos.forEach(video => video.classList.remove('active'));
-                thumbnails.forEach(thumb => thumb.classList.remove('active'));
-                
-                const selectedVideo = document.getElementById(videoId);
-                const selectedThumbnail = document.querySelector(`.thumbnail-container[data-video="${videoId}"]`);
-                
-                if (selectedVideo) selectedVideo.classList.add('active');
-                if (selectedThumbnail) selectedThumbnail.classList.add('active');
-            };
-            
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', () => {
-                    activateVideo(thumbnail.dataset.video);
-                    thumbnail.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest',
-                        inline: 'center'
-                    });
-                });
-            });
-            
-            // 9. Carousel navigation buttons
-            if (prevBtn && nextBtn && carousel) {
-                const scrollAmount = 200;
-                
-                prevBtn.addEventListener('click', () => {
-                    carousel.scrollBy({
-                        left: -scrollAmount,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                nextBtn.addEventListener('click', () => {
-                    carousel.scrollBy({
-                        left: scrollAmount,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        });
-        
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                .then(registration => {
-                    console.log('ServiceWorker registration successful');
-                })
-                .catch(error => {
-                    console.log('ServiceWorker registration failed:', error);
-                });
-            });
+      // PWA Installation
+      let deferredPrompt;
+      const installButton = document.getElementById("install-button");
+
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installButton.style.display = "block";
+      });
+
+      installButton.addEventListener("click", async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === "accepted") {
+          installButton.style.display = "none";
         }
+        deferredPrompt = null;
+      });
+
+      // Service Worker
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("../service-worker.js")
+          .catch((error) => console.error("SW registration failed:", error));
+      }
+      
+      // Offline analytics tracking
+      window.addEventListener('online', function() {
+        // Send any stored analytics data when back online
+        if (window.localStorage.getItem('offlineAnalytics')) {
+          const events = JSON.parse(window.localStorage.getItem('offlineAnalytics'));
+          events.forEach(event => gtag('event', event.name, event.params));
+          window.localStorage.removeItem('offlineAnalytics');
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
