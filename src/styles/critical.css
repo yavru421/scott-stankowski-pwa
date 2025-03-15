@@ -49,4 +49,47 @@ body {
     }
 }
 
-/* Rest of your existing styles... */
+/* Remove hero, value prop, and merch styles */
+
+/* Social Section */
+.social-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--bg-secondary);
+    margin-top: 2rem;
+}
+
+.social-section h2 {
+    margin-bottom: 2rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+/* Make install button more prominent */
+.install-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 30px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(252, 73, 3, 0.4);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.install-button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(252, 73, 3, 0.6);
+}

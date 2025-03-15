@@ -49,25 +49,19 @@
             <p>The official place to experience Stosh content</p>
             
             <nav aria-label="Main navigation">
-                <a href="#latest" class="active" aria-current="page">Latest</a>
-                <a href="#videos">Videos</a>
-                <a href="#stosh-merch">Merch</a>
-                <a href="#stosh-aesthetic">Aesthetic</a>
+                <a href="#videos" class="active" aria-current="page">Videos</a>
+                <a href="#social">Follow</a>
             </nav>
         </div>
     </header>
     
     <main>
-        <section id="latest">
-            <h2>Latest from Stosh</h2>
-            <!-- Only keeping the working Facebook Post -->
-            <div class="video-container">
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122100470444404410%26set%3Da.122100465728404410&show_text=true&width=500" width="500" height="533" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </div>
-            
-            <!-- Removed the non-working Facebook Post -->
-        </section>
-        
+        <!-- PWA Install Button -->
+        <button id="install-button" style="display: none" class="install-button">
+            Install StoshNews App
+        </button>
+
+        <!-- Videos Section -->
         <section id="videos">
             <h2>Stosh Videos</h2>
             <p>Check out the latest Stosh content, fresh from the source.</p>
@@ -82,6 +76,9 @@
                     
                     <!-- Third Facebook Video -->
                     <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" id="video-3"></iframe>
+                    
+                    <!-- Fourth Facebook Video -->
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F947112336947655%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" id="video-4"></iframe>
                 </div>
                 
                 <div class="video-carousel">
@@ -97,7 +94,11 @@
                         <img src="https://via.placeholder.com/320x180/333/fff?text=Video+3" alt="Video 3" class="video-thumbnail">
                         <div class="video-title">Fishing the BWCA</div>
                     </div>
-                    <!-- These will now be hidden by default -->
+                    <!-- Fourth Video Thumbnail -->
+                    <div class="thumbnail-container" data-video="video-4">
+                        <img src="https://via.placeholder.com/320x180/333/fff?text=Video+4" alt="Video 4" class="video-thumbnail">
+                        <div class="video-title">Wisconsin Hunt</div>
+                    </div>
                 </div>
                 
                 <div class="carousel-controls">
@@ -115,65 +116,37 @@
             </div>
         </section>
 
-        <section id="stosh-merch">
-            <h2>Stosh Merch</h2>
-            <p>Get your hands on the latest Stosh merchandise. Be the first to represent.</p>
-            <a href="https://stoshhq.com/merch" target="_blank" rel="noopener noreferrer" class="merch-button">Shop Now</a>
+        <section id="latest">
+            <h2>Latest from Stosh</h2>
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F1786895972136185%2F&show_text=true&width=560&t=0" width="560" height="429" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+            </div>
         </section>
-        
-        <section id="stosh-aesthetic">
-            <h2>Stosh Aesthetic</h2>
-            <p>The visual language that defines the Stosh experience.</p>
-            
-            <div class="stosh-grid">
-                <div class="stosh-card">
-                    <svg class="stosh-icon" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="40" stroke="#fc4903" stroke-width="5" fill="none" />
-                        <circle cx="50" cy="50" r="20" fill="#fc4903" />
+
+        <!-- Social Media Section -->
+        <section id="social" class="social-section">
+            <h2>Follow Stosh</h2>
+            <div class="social-icons">
+                <a href="https://facebook.com/stosh" target="_blank" rel="noopener noreferrer">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
                     </svg>
-                    <h3>Stosh Vision</h3>
-                    <p>Pushing boundaries through creative exploration and authentic storytelling.</p>
-                </div>
-                
-                <div class="stosh-card">
-                    <svg class="stosh-icon" viewBox="0 0 100 100">
-                        <rect x="20" y="20" width="60" height="60" stroke="#fc4903" stroke-width="5" fill="none" />
-                        <rect x="35" y="35" width="30" height="30" fill="#fc4903" />
+                </a>
+                <a href="https://instagram.com/stosh" target="_blank" rel="noopener noreferrer">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
-                    <h3>Stosh Design</h3>
-                    <p>Bold, distinctive elements that capture attention and inspire action.</p>
-                </div>
-                
-                <div class="stosh-card">
-                    <svg class="stosh-icon" viewBox="0 0 100 100">
-                        <polygon points="50,15 85,85 15,85" stroke="#fc4903" stroke-width="5" fill="none" />
-                        <polygon points="50,40 67.5,70 32.5,70" fill="#fc4903" />
+                </a>
+                <a href="https://twitter.com/stosh" target="_blank" rel="noopener noreferrer">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/>
                     </svg>
-                    <h3>Stosh Impact</h3>
-                    <p>Creating moments that resonate and content that matters.</p>
-                </div>
+                </a>
             </div>
         </section>
     </main>
     
     <footer>
-        <div class="social-icons">
-            <a href="https://facebook.com/stosh" target="_blank" rel="noopener noreferrer">
-                <svg class="social-icon" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
-                </svg>
-            </a>
-            <a href="https://instagram.com/stosh" target="_blank" rel="noopener noreferrer">
-                <svg class="social-icon" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-            </a>
-            <a href="https://twitter.com/stosh" target="_blank" rel="noopener noreferrer">
-                <svg class="social-icon" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/>
-                </svg>
-            </a>
-        </div>
         <p>&copy; 2025 StoshNews. All rights preserved in the legend of Stosh.</p>
     </footer>
     
