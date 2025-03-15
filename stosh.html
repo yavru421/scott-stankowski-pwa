@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stosh HQ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+        }
+        .banner-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            margin: 20px auto;
+            max-width: 560px;
+        }
+        svg {
+            width: 100px;
+            height: 100px;
+            fill: #f5f5f5;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner-container">
+            <img src="../assets/banner.webp" alt="Stosh HQ Banner" class="banner-image">
+        </div>
+        <h1>Stosh HQ</h1>
+        <p>The official place to experience Stosh content</p>
+    </header>
+    
+    <main>
+        <section id="videos">
+            <h2>Stosh Videos</h2>
+            <p>Check out the latest Stosh content.</p>
+            
+            <!-- Embed YouTube Video -->
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+            <!-- Embed Facebook Video -->
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F561780440248038%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+            </div>
+        </section>
+        <!-- Embed Additional Facebook Video -->
+        <div class="video-container">
+            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61562132317250%2Fvideos%2F486103221194799%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+        </div>
+        <section id="stosh-merch">
+            <h2>Stosh Merch</h2>
+            <p>Get your hands on the latest Stosh merchandise.</p>
+            <a href="https://stoshhq.com/merch" target="_blank" rel="noopener noreferrer">Shop Now</a>
+        
+        <section id="stosh-branding">
+            <h2>Stosh Aesthetic</h2>
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" stroke="#f5f5f5" stroke-width="5" fill="none" />
+            </svg>
+            <svg viewBox="0 0 100 100">
+                <rect x="20" y="20" width="60" height="60" stroke="#f5f5f5" stroke-width="5" fill="none" />
+            </svg>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Stosh HQ. All rights preserved in the legend of Stosh.</p>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>
