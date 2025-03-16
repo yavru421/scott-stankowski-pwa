@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StoshNews</title>
-    
+
     <meta name="theme-color" content="#fc4903">
     <link rel="manifest" href="./manifest.json">
     <link rel="icon" href="./assets/icon-192x192.png">
     <link rel="apple-touch-icon" href="./assets/icon-192x192.png">
     <meta name="apple-mobile-web-app-title" content="StoshNews">
     <meta name="description" content="StoshNews - Latest video updates">
-    
+
     <style>
         :root {
             --primary: #fc4903;
@@ -20,13 +20,13 @@
             --header-bg: #000;
             --text: #fff;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: system-ui, sans-serif;
             background: var(--bg);
@@ -35,7 +35,7 @@
             max-width: 100vw;
             line-height: 1.5;
         }
-        
+
         .video-container {
             margin: 20px auto;
             max-width: 560px;
@@ -46,7 +46,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             border-radius: 4px;
         }
-        
+
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -55,30 +55,30 @@
             height: 100%;
             border: 0;
         }
-        
+
         header, footer {
             background: var(--header-bg);
             padding: 15px;
             position: sticky;
         }
-        
+
         header {
             top: 0;
             z-index: 10;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        
+
         footer {
             bottom: 0;
             font-size: 0.9rem;
         }
-        
+
         h1 { 
             font-size: 2rem;
             margin-bottom: 10px;
         }
-        
-        .install-btn {
+
+        .share-btn {
             margin: 10px auto;
             padding: 10px 20px;
             background: var(--primary);
@@ -91,13 +91,19 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             transition: background 0.2s ease;
         }
-        
-        .install-btn:hover, .install-btn:focus {
+
+        .share-btn:hover, .share-btn:focus {
             background: var(--primary-hover);
         }
-        
+
         #video-container {
             padding: 10px 0;
+        }
+
+        .fb-container {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -106,47 +112,53 @@
         <h1>StoshNews</h1>
         <button id="share-btn" class="share-btn">Share / Add to Home Screen</button>
     </header>
-    
-    <main id="video-container">
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/561780440248038/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 1"></iframe>
+
+    <main>
+        <div id="fb-root"></div>
+        <div class="fb-container">
+            <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=61562132317250" data-tabs="timeline" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/profile.php?id=61562132317250" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/profile.php?id=61562132317250">StoshNews</a>
+                </blockquote>
+            </div>
         </div>
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/1111103134130383/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 2"></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/433207333148133/?idorvanity=867487150445792&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 3"></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/947112336947655/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 4"></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/2286538441690999/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 5"></iframe>
+
+        <div id="video-container">
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/561780440248038/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 1"></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/1111103134130383/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 2"></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/433207333148133/?idorvanity=867487150445792&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 3"></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/947112336947655/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 4"></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/61562132317250/videos/2286538441690999/&show_text=true" loading="lazy" allowfullscreen title="StoshNews video 5"></iframe>
+            </div>
         </div>
     </main>
-    
+
     <footer>
         <p>&copy; 2024 StoshNews</p>
     </footer>
-    
+
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+
     <script>
-        let deferredPrompt;
-        const installBtn = document.getElementById('install-btn');
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installBtn.style.display = 'block';
-        });
-        
-        installBtn.addEventListener('click', async () => {
-            if (!deferredPrompt) return;
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                installBtn.style.display = 'none';
+        document.getElementById('share-btn').addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'StoshNews',
+                    text: 'Check out StoshNews!',
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                alert('Sharing not supported. Use the browser menu to add to Home Screen.');
             }
-            deferredPrompt = null;
         });
     </script>
 </body>
